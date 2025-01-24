@@ -1,46 +1,73 @@
 NAME 		= 			push_swap
 
+PRINTF=/includes/ft_printf/libftprintf.a
+
 HEAD 		=			push_swap.h
 
 OBJ_DIR		=			obj/
+
+MAKEFLAGS	+= --no-print-directory
 
 CC			=			cc
 
 CFLAGS		=			-Wall -Werror -Wall -MMD -MP
 
-AR			=			ar -rcs
 
-SRC			=			push.c
+SRCS	=			$(addprefix $(SRC_DIR), $(SRC_ACC))
+
+SRC_DIR			=			srcs/
+
+PARSING_DIR	=			parsing/
+SORT_DIRECTORY		= sort/
+OPE_DIRECTORY		= operations/
+
+PARSING_SRC =			\
+			testttttt \
+SORT_SRC	= sort \
+
+SRC_ACC			+= $(addprefix $(PARSING_DIR), $(addsuffix .c, $(PARSING_SRC)))
+SRC_ACC			+=
 
 
-OBJ			=			$(SRC:%.c=$(OBJ_DIR)%.o)
-DEP			=			$(SRC:%.c=$(OBJ_DIR)%.d)
+OBJ			=			$(patsubst $(SRC_DIR)%.c,$(OBJ_DIR)%.o,$(SRCS))
 
-$(OBJ_DIR)%.o: %.c $(HEAD) Makefile | $(OBJ_DIR)
-						$(CC) $(CFLAGS) -c $< -o $@
+DEP			=			$(OBJ:.o=.d)
+
+-include $(DEP)
+
+.DEFAULT_GOAL	= all
 
 all:					$(NAME)
 
-$(NAME):				$(OBJ)
-							$(AR) $@ $?
+$(NAME):				$(OBJ) $(PRINTF) Makefile
+							echo "$(SRC)"
+							$(CC) $(CFLAGS) $(OBJ) -o $@
 
-$(OBJ_DIR):
-						@mkdir -p $(OBJ_DIR)
-.PHONY: 				all
+$(OBJ_DIR)%.o: $(SRCS_PATH)%.c
+						@mkdir -p $(dir $@)
+						$(CC) $(CFLAGS) -c $< -o $@
+
+$(PRINTF): FORCE
+	$(MAKE) -C includes/ft_printf
 
 clean:
-						@rm -rf $(OBJ) $(OBJ_DIR)
+						@rm -rf $(OBJ_DIR)
 						@echo "Deleting $(OBJ_DIR)"
-.PHONY: 				clean
+
 
 fclean:					clean
+							$(MAKE) fclean -C includes/ft_printf
 							@rm -rf $(NAME)
 							@echo "Deleting $(NAME)"
-.PHONY: 				fclean
+
 
 re: 					fclean
 						$(MAKE) all
 
-.PHONY: 				re
+
+
+FORCE:
+
 #.SILENT:				clean
--include $(DEP)
+
+.PHONY: 				re all clean fclean FORCE

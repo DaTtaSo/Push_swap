@@ -16,6 +16,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <limits.h>
+# include "/ft_printf/ft_printf.h"
 
 typedef struct s_stack
 {
@@ -47,7 +48,10 @@ void sort_stacks(t_stack **stack_a, t_stack **stack_b);
 // stack management
 t_stack *create_node(int value);
 void	push_front(t_stack **stack, t_stack *new);
-t_stack *pop_front(t_stack **stack)
-int	stack_size(t_stack *stack)
+t_stack *pop_front(t_stack **stack);
+int	stack_size(t_stack *stack);
+
+//error management
+void	error_exit(t_stack **stack_a, t_stack **stack_b);
 #endif
 
