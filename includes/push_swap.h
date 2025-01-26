@@ -51,7 +51,14 @@ void	push_front(t_stack **stack, t_stack *new);
 t_stack *pop_front(t_stack **stack);
 int	stack_size(t_stack *stack);
 
+//parsing
+t_stack *parse_arguments(int argc, char **argv);
+int is_valid_number(char *str);
+int	ft_isdigit(int c);
+
 //error management
 void	error_exit(t_stack **stack_a, t_stack **stack_b);
+
+
 #endif
 
