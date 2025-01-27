@@ -10,7 +10,7 @@ OBJ_DIR				=			obj/
 
 CC					=			cc
 
-CFLAGS				=		-Wall -Werror -Wall -MMD -MP
+CFLAGS				=		-Wall -Werror -Wall -MMD -MP -g3
 
 SRCS				=			$(addprefix $(SRC_DIR), $(SRC_ACC))
 

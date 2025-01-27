@@ -27,4 +27,5 @@ void	error_exit(t_stack **stack_a, t_stack **stack_b)
 		}
 	}
 	ft_printf("%s\n", "Error : invalid input\n");
+	exit(EXIT_FAILURE);
 }

@@ -19,7 +19,12 @@ void sort_stacks(t_stack **stack_a, t_stack **stack_b)
 	if (!stack_a || !*stack_a)
 		return ;
 	size = stack_size(*stack_a);
-	if (size <= 3)
+	if (size == 2)
+	{
+		if ((*stack_a)->value < (*stack_a)->next->value)
+			sa(stack_a);
+	}
+	else if (size == 3)
 		sort_three(stack_a);
 	else if (size <= 5)
 		sort_up_to_nine(stack_a, stack_b);
