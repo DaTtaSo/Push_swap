@@ -12,11 +12,11 @@
 
 #include "../../includes/push_swap.h"
 
-t_stack *parse_arguments(int argc, char **argv)
+t_stack	*parse_arguments(int argc, char **argv)
 {
-	t_stack *stack_a;
-	long int num;
-	int i;
+	t_stack		*stack_a;
+	long int	num;
+	int			i;
 
 	stack_a = NULL;
 	i = 1;

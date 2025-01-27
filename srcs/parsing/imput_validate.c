@@ -12,9 +12,9 @@
 
 #include "../../includes/push_swap.h"
 
-int is_valid_number(char *str)
+int	is_valid_number(char *str)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (!str[i])

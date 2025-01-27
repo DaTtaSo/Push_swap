@@ -14,9 +14,9 @@
 
 void	radix_algorithm(t_stack **stack_a, t_stack **stack_b, int max_bits)
 {
-	int i;
-	int j;
-	int size;
+	int	i;
+	int	j;
+	int	size;
 
 	size = stack_size(*stack_a);
 	i = 0;

@@ -12,9 +12,9 @@
 
 #include "../../includes/push_swap.h"
 
-void sort_stacks(t_stack **stack_a, t_stack **stack_b)
+void	sort_stacks(t_stack **stack_a, t_stack **stack_b)
 {
-	int size;
+	int	size;
 
 	if (!stack_a || !*stack_a)
 		return ;

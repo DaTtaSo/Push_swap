@@ -22,11 +22,7 @@ int	main(int argc, char **argv)
 	stack_b = NULL;
 	stack_a = parse_arguments(argc, argv);
 	if (!stack_a)
-	{
-//		free(&stack_a);
 		return (0);
-	}
 	sort_stacks(&stack_a, &stack_b);
-//	free_stack(&stack_a);
 	return (0);
 }

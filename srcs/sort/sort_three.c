@@ -21,7 +21,6 @@ void	sort_three(t_stack **stack)
 	first = (*stack)->value;
 	second = (*stack)->next->value;
 	third = (*stack)->next->next->value;
-
 	if (first > second && second < third && first < third)
 		sa(stack);
 	else if (first > second && second > third)

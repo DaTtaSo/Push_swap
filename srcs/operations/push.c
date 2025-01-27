@@ -26,7 +26,7 @@ void	pb(t_stack **stack_a, t_stack **stack_b)
 
 void	push(t_stack **dest, t_stack **src)
 {
-	t_stack *temp;
+	t_stack	*temp;
 
 	if (!*src)
 		return ;

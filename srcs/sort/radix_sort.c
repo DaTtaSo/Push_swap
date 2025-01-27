@@ -12,9 +12,9 @@
 
 #include "../../includes/push_swap.h"
 
-static int count_bits(int n)
+static int	count_bits(int n)
 {
-	int count;
+	int	count;
 
 	count = 0;
 	while (n)
@@ -27,8 +27,8 @@ static int count_bits(int n)
 
 void	radix_sort(t_stack **stack_a, t_stack **stack_b)
 {
-	int	max_bits;
-	t_stack *current;
+	int		max_bits;
+	t_stack	*current;
 
 	current = *stack_a;
 	max_bits = 0;
@@ -41,4 +41,3 @@ void	radix_sort(t_stack **stack_a, t_stack **stack_b)
 	max_bits = count_bits(max_bits);
 	radix_algorithm(stack_a, stack_b, max_bits);
 }
-

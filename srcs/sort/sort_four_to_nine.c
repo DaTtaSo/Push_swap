@@ -15,7 +15,7 @@
 int	find_smallest(t_stack *stack)
 {
 	int	smallest;
-	int index;
+	int	index;
 
 	smallest = stack->index;
 	index = stack->index;
@@ -28,7 +28,7 @@ int	find_smallest(t_stack *stack)
 	return (smallest);
 }
 
-void sort_up_to_nine(t_stack **stack_a, t_stack **stack_b)
+void	sort_up_to_nine(t_stack **stack_a, t_stack **stack_b)
 {
 	int	smallest;
 

@@ -40,7 +40,8 @@ void	reverse_rotate(t_stack **stack)
 		return ;
 	temp = *stack;
 	second_last = NULL;
-	while (temp->next) {
+	while (temp->next)
+	{
 		second_last = temp;
 		temp = temp->next;
 	}

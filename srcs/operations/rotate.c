@@ -33,10 +33,10 @@ void	rr(t_stack **stack_a, t_stack **stack_b)
 
 void	rotate(t_stack **stack)
 {
-	t_stack *temp;
-	t_stack *last;
+	t_stack	*temp;
+	t_stack	*last;
 
-	if(!*stack || !(*stack)->next)
+	if (!*stack || !(*stack)->next)
 		return ;
 	temp = *stack;
 	*stack = (*stack)->next;

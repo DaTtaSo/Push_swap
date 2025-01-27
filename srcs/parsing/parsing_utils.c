@@ -17,11 +17,11 @@ int	ft_isdigit(int c)
 	return (c >= '0' && c <= '9');
 }
 
-int ft_atol(const char *str)
+int	ft_atol(const char *str)
 {
-	size_t i;
-	int sign;
-	unsigned long res;
+	size_t			i;
+	int				sign;
+	unsigned long	res;
 
 	i = 0;
 	sign = 1;

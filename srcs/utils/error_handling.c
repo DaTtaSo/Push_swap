@@ -14,8 +14,9 @@
 
 void	error_exit(t_stack **stack_a, t_stack **stack_b)
 {
-	t_stack *current;
-	t_stack *next;
+	t_stack	*current;
+	t_stack	*next;
+
 	if (stack_a && *stack_a)
 	{
 		current = *stack_a;

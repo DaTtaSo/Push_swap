@@ -14,7 +14,7 @@
 
 int	stack_size(t_stack *stack)
 {
-	int size;
+	int	size;
 
 	size = 0;
 	while (stack)
@@ -25,9 +25,9 @@ int	stack_size(t_stack *stack)
 	return (size);
 }
 
-t_stack *pop_front(t_stack **stack)
+t_stack	*pop_front(t_stack **stack)
 {
-	t_stack *temp;
+	t_stack	*temp;
 
 	if (!*stack)
 		return (NULL);
