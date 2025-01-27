@@ -1,0 +1,8 @@
+.idea/
+*.o
+*.gch
+a.out
+obj/
+*.d
+.gitignore
+push_swap

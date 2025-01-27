@@ -15,11 +15,12 @@
 t_stack	*parse_arguments(int argc, char **argv)
 {
 	t_stack		*stack_a;
-	long int	num;
+	long		num;
 	int			i;
 
 	stack_a = NULL;
 	i = 1;
+
 	while (i < argc)
 	{
 		if (!is_valid_number(argv[i]))

@@ -16,7 +16,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <limits.h>
-# include "ft_printf/ft_printf.h"
+# include "./libft/libft.h"
 
 typedef struct s_stack
 {
@@ -59,7 +59,6 @@ int		stack_size(t_stack *stack);
 //parsing
 t_stack	*parse_arguments(int argc, char **argv);
 int		is_valid_number(char *str);
-int		ft_isdigit(int c);
 int		ft_atol(const char *str);
 int		check_duplicate(t_stack *stack, int value);
 

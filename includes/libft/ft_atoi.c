@@ -1,22 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parsing_utils.c                                    :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nbedouan <nbedouan@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: nbedouan <nbedouan@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/26 19:51:03 by nbedouan          #+#    #+#             */
-/*   Updated: 2025/01/26 20:05:47 by nbedouan         ###   ########.fr       */
+/*   Created: 2024/11/14 17:50:37 by nbedouan          #+#    #+#             */
+/*   Updated: 2024/11/14 17:50:37 by nbedouan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#include "libft.h"
 
-int	ft_atol(const char *str)
+int	ft_atoi(const char *str)
 {
-	size_t			i;
-	int				sign;
-	unsigned long	res;
+	size_t				i;
+	int					sign;
+	unsigned int		res;
 
 	i = 0;
 	sign = 1;
@@ -31,19 +31,8 @@ int	ft_atol(const char *str)
 	}
 	while (str[i] >= '0' && str[i] <= '9')
 	{
-		res = (res * 10) + (str[i] - '0');
+		res = (res * 10) +(str[i] - '0');
 		i++;
 	}
-	return ((long)res * sign);
-}
-
-int	check_duplicate(t_stack *stack, int value)
-{
-	while (stack)
-	{
-		if (stack->value == value)
-			return (1);
-		stack = stack->next;
-	}
-	return (0);
+	return ((int)res * sign);
 }

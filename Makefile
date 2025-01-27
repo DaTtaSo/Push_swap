@@ -1,8 +1,8 @@
 NAME 				= 			push_swap
 
-PRINTF				=			includes/ft_printf/libftprintf.a
+LIBFT				=			includes/libft/libft.a
 
-INCLUDES = -I includes -I includes/ft_printf
+INCLUDES = -I includes -I includes/libft
 
 HEAD 				=			push_swap.h
 
@@ -12,7 +12,7 @@ CC					=			cc
 
 CFLAGS				=		-Wall -Werror -Wall -MMD -MP -g3
 
-SRCS				=			$(addprefix $(SRC_DIR), $(SRC_ACC))
+SRCS				=			$(addprefix $(SRCS_DIR), $(SRC_ACC))
 
 SRCS_DIR				=			srcs/
 ALGO_DIR			=			algorithm/
@@ -56,26 +56,24 @@ SRC_ACC				+=			$(addprefix $(UTILS_DIR), $(addsuffix .c, $(UTILS_SRCS)))
 SRC_ACC				+=			$(addsuffix .c, $(MAIN_SRCS))
 
 
-OBJ			=			$(patsubst $(SRC_DIR)%.c,$(OBJ_DIR)%.o,$(SRCS))
+OBJ			=			$(patsubst $(SRCS_DIR)%.c,$(OBJ_DIR)%.o,$(SRCS))
 
-DEP			=			$(patsubst $(SRC_DIR)%.c,$(OBJ_DIR)%.d,$(SRCS))
+DEP			=			$(patsubst $(SRCS_DIR)%.c,$(OBJ_DIR)%.d,$(SRCS))
 
 -include $(DEP)
 
-.DEFAULT_GOAL	= all
-
 all:					$(NAME)
 
-$(NAME):				$(OBJ) $(PRINTF)
+$(NAME):				$(OBJ) $(LIBFT)
 							echo "$(SRC)"
-							$(CC) $(CFLAGS) $(OBJ) $(PRINTF) -o $@
+							$(CC) $(CFLAGS) $(OBJ) $(LIBFT) -o $@
 
 $(OBJ_DIR)%.o: $(SRCS_DIR)%.c
 						@mkdir -p $(dir $@)
 						$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
-$(PRINTF): FORCE
-	$(MAKE) -C includes/ft_printf
+$(LIBFT): FORCE
+	$(MAKE) -C includes/libft
 
 clean:
 						@rm -rf $(OBJ_DIR)
@@ -83,7 +81,6 @@ clean:
 
 
 fclean:					clean
-							$(MAKE) fclean -C includes/ft_printf
 							@rm -rf $(NAME)
 							@echo "Deleting $(NAME)"
 
