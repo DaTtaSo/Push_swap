@@ -1,32 +1,25 @@
 NAME 				= 			push_swap
 
-PRINTF				=			/includes/ft_printf/libftprintf.a
+PRINTF				=			includes/ft_printf/libftprintf.a
+
+INCLUDES = -I includes -I includes/ft_printf
 
 HEAD 				=			push_swap.h
 
 OBJ_DIR				=			obj/
 
-MAKEFLAG			+=			--no-print-directory
-
 CC					=			cc
 
 CFLAGS				=		-Wall -Werror -Wall -MMD -MP
 
-SRCS             =        $(SRC_ACC)
-#SRCS				=			$(addprefix $(SRC_DIR), $(SRC_ACC))
+SRCS				=			$(addprefix $(SRC_DIR), $(SRC_ACC))
 
 SRCS_DIR				=			srcs/
-
 ALGO_DIR			=			algorithm/
-
 OPE_DIR				=			operations/
-
 PARSING_DIR			=			parsing/
-
 SORT_DIR			=			sort/
-
 STACK_DIR			=			stack/
-
 UTILS_DIR			=			utils/
 
 
@@ -49,7 +42,10 @@ SORT_SRCS			=			radix_sort			\
 STACK_SRCS			=			stack_init			\
 								stack_utils
 
-UTILS_SRCS			=			error_handling
+UTILS_SRCS			=			error_handling		\
+								error_utils
+
+MAIN_SRCS			=			main
 
 SRC_ACC				+=			$(addprefix $(ALGO_DIR), $(addsuffix .c, $(ALGO_SRCS)))
 SRC_ACC				+=			$(addprefix $(OPE_DIR), $(addsuffix .c, $(OPE_SRCS)))
@@ -57,12 +53,12 @@ SRC_ACC				+=			$(addprefix $(PARSING_DIR), $(addsuffix .c, $(PARSING_SRCS)))
 SRC_ACC				+=			$(addprefix $(SORT_DIR), $(addsuffix .c, $(SORT_SRCS)))
 SRC_ACC				+=			$(addprefix $(STACK_DIR), $(addsuffix .c, $(STACK_SRCS)))
 SRC_ACC				+=			$(addprefix $(UTILS_DIR), $(addsuffix .c, $(UTILS_SRCS)))
+SRC_ACC				+=			$(addsuffix .c, $(MAIN_SRCS))
 
 
-#OBJ			=			$(patsubst $(SRC_DIR)%.c,$(OBJ_DIR)%.o,$(SRCS))
-OBJ              =        $(patsubst %.c,$(OBJ_DIR)%.o,$(SRCS))
+OBJ			=			$(patsubst $(SRC_DIR)%.c,$(OBJ_DIR)%.o,$(SRCS))
 
-DEP			=			$(OBJ:.o=.d)
+DEP			=			$(patsubst $(SRC_DIR)%.c,$(OBJ_DIR)%.d,$(SRCS))
 
 -include $(DEP)
 
@@ -70,13 +66,13 @@ DEP			=			$(OBJ:.o=.d)
 
 all:					$(NAME)
 
-$(NAME):				$(OBJ) $(PRINTF) Makefile
+$(NAME):				$(OBJ) $(PRINTF)
 							echo "$(SRC)"
-							$(CC) $(CFLAGS) $(OBJ) -o $@
+							$(CC) $(CFLAGS) $(OBJ) $(PRINTF) -o $@
 
 $(OBJ_DIR)%.o: $(SRCS_DIR)%.c
 						@mkdir -p $(dir $@)
-						$(CC) $(CFLAGS) -c $< -o $@
+						$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
 $(PRINTF): FORCE
 	$(MAKE) -C includes/ft_printf
@@ -95,10 +91,6 @@ fclean:					clean
 re: 					fclean
 						$(MAKE) all
 
-
-
 FORCE:
 
-#.SILENT:				clean
-
-.PHONY: 				re all clean fclean FORCE
+.PHONY: 				re all clean fclean Makefile FORCE

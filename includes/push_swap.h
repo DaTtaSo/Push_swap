@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#ifndef PUSH_SWAP_H
+# define PUSH_SWAP_H
 
 # include <stdlib.h>
 # include <unistd.h>
@@ -65,6 +65,7 @@ int	check_duplicate(t_stack *stack, int value);
 
 //error management
 void	error_exit(t_stack **stack_a, t_stack **stack_b);
+void	free_stack(t_stack **stack);
 
 #endif
 
