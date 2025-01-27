@@ -1,35 +1,66 @@
-NAME 		= 			push_swap
+NAME 				= 			push_swap
 
-PRINTF=/includes/ft_printf/libftprintf.a
+PRINTF				=			/includes/ft_printf/libftprintf.a
 
-HEAD 		=			push_swap.h
+HEAD 				=			push_swap.h
 
-OBJ_DIR		=			obj/
+OBJ_DIR				=			obj/
 
-MAKEFLAGS	+= --no-print-directory
+MAKEFLAG			+=			--no-print-directory
 
-CC			=			cc
+CC					=			cc
 
-CFLAGS		=			-Wall -Werror -Wall -MMD -MP
+CFLAGS				=		-Wall -Werror -Wall -MMD -MP
+
+SRCS             =        $(SRC_ACC)
+#SRCS				=			$(addprefix $(SRC_DIR), $(SRC_ACC))
+
+SRCS_DIR				=			srcs/
+
+ALGO_DIR			=			algorithm/
+
+OPE_DIR				=			operations/
+
+PARSING_DIR			=			parsing/
+
+SORT_DIR			=			sort/
+
+STACK_DIR			=			stack/
+
+UTILS_DIR			=			utils/
 
 
-SRCS	=			$(addprefix $(SRC_DIR), $(SRC_ACC))
+ALGO_SRCS			=			radix				\
 
-SRC_DIR			=			srcs/
+OPE_SRCS			=			push				\
+								reverse_rotate		\
+								rotate				\
+								swap
 
-PARSING_DIR	=			parsing/
-SORT_DIRECTORY		= sort/
-OPE_DIRECTORY		= operations/
+PARSING_SRCS		=			imput_parse			\
+								imput_validate		\
+								parsing_utils
 
-PARSING_SRC =			\
-			testttttt \
-SORT_SRC	= sort \
+SORT_SRCS			=			radix_sort			\
+								sort_four_to_nine	\
+								sort_stacks			\
+								sort_three
 
-SRC_ACC			+= $(addprefix $(PARSING_DIR), $(addsuffix .c, $(PARSING_SRC)))
-SRC_ACC			+=
+STACK_SRCS			=			stack_init			\
+								stack_utils
+
+UTILS_SRCS			=			error_handling
+
+SRC_ACC				+=			$(addprefix $(ALGO_DIR), $(addsuffix .c, $(ALGO_SRCS)))
+SRC_ACC				+=			$(addprefix $(OPE_DIR), $(addsuffix .c, $(OPE_SRCS)))
+SRC_ACC				+=			$(addprefix $(PARSING_DIR), $(addsuffix .c, $(PARSING_SRCS)))
+SRC_ACC				+=			$(addprefix $(SORT_DIR), $(addsuffix .c, $(SORT_SRCS)))
+SRC_ACC				+=			$(addprefix $(STACK_DIR), $(addsuffix .c, $(STACK_SRCS)))
+SRC_ACC				+=			$(addprefix $(UTILS_DIR), $(addsuffix .c, $(UTILS_SRCS)))
 
 
-OBJ			=			$(patsubst $(SRC_DIR)%.c,$(OBJ_DIR)%.o,$(SRCS))
+#OBJ			=			$(patsubst $(SRC_DIR)%.c,$(OBJ_DIR)%.o,$(SRCS))
+OBJ              =        $(patsubst %.c,$(OBJ_DIR)%.o,$(SRCS))
 
 DEP			=			$(OBJ:.o=.d)
 
@@ -43,7 +74,7 @@ $(NAME):				$(OBJ) $(PRINTF) Makefile
 							echo "$(SRC)"
 							$(CC) $(CFLAGS) $(OBJ) -o $@
 
-$(OBJ_DIR)%.o: $(SRCS_PATH)%.c
+$(OBJ_DIR)%.o: $(SRCS_DIR)%.c
 						@mkdir -p $(dir $@)
 						$(CC) $(CFLAGS) -c $< -o $@
 

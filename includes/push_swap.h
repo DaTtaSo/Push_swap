@@ -16,7 +16,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <limits.h>
-# include "/ft_printf/ft_printf.h"
+# include "ft_printf/ft_printf.h"
 
 typedef struct s_stack
 {
@@ -36,17 +36,19 @@ void	rb(t_stack **stack_b);
 void	ra(t_stack **stack_a);
 void	reverse_rotate(t_stack **stack);
 void	rrr(t_stack **stack_a, t_stack **stack_b);
-void	rra(t_stack **stack_b);
+void	rrb(t_stack **stack_b);
 void	rra(t_stack **stack_a);
 void	push(t_stack **dest, t_stack **src);
 void	pa(t_stack **stack_a, t_stack **stack_b);
 void	pb(t_stack **stack_a, t_stack **stack_b);
 
 // Sorting functions
+void	radix_sort(t_stack **stack_a, t_stack **stack_b);
+void	radix_algorithm(t_stack **stack_a, t_stack **stack_b, int max_bits);
 void sort_stacks(t_stack **stack_a, t_stack **stack_b);
 void	sort_three(t_stack **stack);
 void sort_up_to_nine(t_stack **stack_a, t_stack **stack_b);
-int	find_smallest(t_stack *stack)
+int	find_smallest(t_stack *stack);
 
 // stack management
 t_stack *create_node(int value);
@@ -59,10 +61,10 @@ t_stack *parse_arguments(int argc, char **argv);
 int is_valid_number(char *str);
 int	ft_isdigit(int c);
 int ft_atol(const char *str);
+int	check_duplicate(t_stack *stack, int value);
 
 //error management
 void	error_exit(t_stack **stack_a, t_stack **stack_b);
-
 
 #endif
 

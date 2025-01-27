@@ -22,7 +22,7 @@ void sort_stacks(t_stack **stack_a, t_stack **stack_b)
 	if (size <= 3)
 		sort_three(stack_a);
 	else if (size <= 5)
-		sort_five(stack_a, stack_b);
+		sort_up_to_nine(stack_a, stack_b);
 	else
 		radix_sort(stack_a, stack_b);
 }

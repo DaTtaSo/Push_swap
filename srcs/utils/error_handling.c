@@ -18,7 +18,7 @@ void	error_exit(t_stack **stack_a, t_stack **stack_b)
 	t_stack *next;
 	if (stack_a && *stack_a)
 	{
-		*current = *stack_a;
+		current = *stack_a;
 		while (current)
 		{
 			next = current->next;
@@ -26,5 +26,5 @@ void	error_exit(t_stack **stack_a, t_stack **stack_b)
 			current = next;
 		}
 	}
-	ft_printf("%s\n", "Error : invalid imput\n")
+	ft_printf("%s\n", "Error : invalid imput\n");
 }

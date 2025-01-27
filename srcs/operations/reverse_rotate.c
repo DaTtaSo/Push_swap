@@ -18,7 +18,7 @@ void	rra(t_stack **stack_a)
 	write(1, "rra\n", 4);
 }
 
-void	rra(t_stack **stack_b)
+void	rrb(t_stack **stack_b)
 {
 	reverse_rotate(stack_b);
 	write(1, "rrb\n", 4);

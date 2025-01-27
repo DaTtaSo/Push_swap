@@ -27,7 +27,7 @@ t_stack *parse_arguments(int argc, char **argv)
 		num = ft_atol(argv[i]);
 		if (num > INT_MAX || num < INT_MIN)
 			error_exit(&stack_a, NULL);
-		if (has_duplicate(stack_a, (int)num))
+		if (check_duplicate(stack_a, (int)num))
 			error_exit(&stack_a, NULL);
 		push_front(&stack_a, create_node((int)num));
 		i++;
