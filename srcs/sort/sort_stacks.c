@@ -16,13 +16,13 @@ void sort_stacks(t_stack **stack_a, t_stack **stack_b)
 {
 	int size;
 
+	if (!stack_a || !*stack_a)
+		return ;
 	size = stack_size(*stack_a);
 	if (size <= 3)
 		sort_three(stack_a);
 	else if (size <= 5)
 		sort_five(stack_a, stack_b);
-	else if (size <= 100)
-		chunk_sort(stack_a, stack_b, 5);
 	else
 		radix_sort(stack_a, stack_b);
 }

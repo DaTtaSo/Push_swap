@@ -17,7 +17,7 @@ int	ft_isdigit(int c)
 	return (c >= '0' && c <= '9');
 }
 
-int ft_atoi(const char *str)
+int ft_atol(const char *str)
 {
 	size_t i;
 	int sign;

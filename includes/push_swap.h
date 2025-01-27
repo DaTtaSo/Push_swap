@@ -44,6 +44,9 @@ void	pb(t_stack **stack_a, t_stack **stack_b);
 
 // Sorting functions
 void sort_stacks(t_stack **stack_a, t_stack **stack_b);
+void	sort_three(t_stack **stack);
+void sort_up_to_nine(t_stack **stack_a, t_stack **stack_b);
+int	find_smallest(t_stack *stack)
 
 // stack management
 t_stack *create_node(int value);
@@ -55,6 +58,7 @@ int	stack_size(t_stack *stack);
 t_stack *parse_arguments(int argc, char **argv);
 int is_valid_number(char *str);
 int	ft_isdigit(int c);
+int ft_atol(const char *str);
 
 //error management
 void	error_exit(t_stack **stack_a, t_stack **stack_b);
