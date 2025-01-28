@@ -68,11 +68,13 @@ $(LIBFT): FORCE
 	$(MAKE) -C includes/libft
 
 clean:
+						make clean -C includes/libft
 						@rm -rf $(OBJ_DIR)
 						@echo "Deleting $(OBJ_DIR)"
 
 
 fclean:					clean
+							make fclean -C includes/libft
 							@rm -rf $(NAME)
 							@echo "Deleting $(NAME)"
 
