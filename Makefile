@@ -2,26 +2,23 @@ NAME 				= 			push_swap
 
 LIBFT				=			includes/libft/libft.a
 
-INCLUDES = -I includes -I includes/libft
-
 HEAD 				=			push_swap.h
 
 OBJ_DIR				=			obj/
 
 CC					=			cc
 
-CFLAGS				=		-Wall -Werror -Wall -MMD -MP -g3
+CFLAGS				=		-Wall -Werror -MMD -MP -g3
 
 SRCS				=			$(addprefix $(SRCS_DIR), $(SRC_ACC))
 
-SRCS_DIR				=			srcs/
+SRCS_DIR			=			srcs/
 ALGO_DIR			=			algorithm/
 OPE_DIR				=			operations/
 PARSING_DIR			=			parsing/
 SORT_DIR			=			sort/
 STACK_DIR			=			stack/
 UTILS_DIR			=			utils/
-
 
 ALGO_SRCS			=			radix				\
 
@@ -54,22 +51,18 @@ SRC_ACC				+=			$(addprefix $(STACK_DIR), $(addsuffix .c, $(STACK_SRCS)))
 SRC_ACC				+=			$(addprefix $(UTILS_DIR), $(addsuffix .c, $(UTILS_SRCS)))
 SRC_ACC				+=			$(addsuffix .c, $(MAIN_SRCS))
 
-
 OBJ			=			$(patsubst $(SRCS_DIR)%.c,$(OBJ_DIR)%.o,$(SRCS))
 
 DEP			=			$(patsubst $(SRCS_DIR)%.c,$(OBJ_DIR)%.d,$(SRCS))
 
--include $(DEP)
-
 all:					$(NAME)
 
 $(NAME):				$(OBJ) $(LIBFT)
-							echo "$(SRC)"
 							$(CC) $(CFLAGS) $(OBJ) $(LIBFT) -o $@
 
 $(OBJ_DIR)%.o: $(SRCS_DIR)%.c
 						@mkdir -p $(dir $@)
-						$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
+						$(CC) $(CFLAGS) -c $< -o $@
 
 $(LIBFT): FORCE
 	$(MAKE) -C includes/libft
@@ -89,4 +82,6 @@ re: 					fclean
 
 FORCE:
 
-.PHONY: 				re all clean fclean Makefile FORCE
+.PHONY: 				re all clean fclean FORCE
+
+-include $(DEP)
