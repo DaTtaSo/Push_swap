@@ -33,11 +33,11 @@ void	ss(t_stack **stack_b, t_stack **stack_a)
 
 void	swap(t_stack **stack)
 {
-	t_stack	*temp;
+	int	tmp;
 
 	if (!*stack || !(*stack)->next)
 		return ;
-	temp = (*stack)->next;
-	(*stack)->next = temp->next;
-	temp->next = *stack;
+	tmp = (*stack)->value;
+	(*stack)->value = (*stack)->next->value;
+	(*stack)->next->value = tmp;
 }

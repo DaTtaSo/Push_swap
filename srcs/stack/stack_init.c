@@ -20,15 +20,25 @@ t_stack	*create_node(int value)
 	if (!new)
 		return (NULL);
 	new->value = value;
-	new->index = 0;
 	new->next = NULL;
 	return (new);
 }
 
-void	push_front(t_stack **stack, t_stack *new)
+void	push_back(t_stack **stack, t_stack *new)
 {
-	if (!new)
+	t_stack	*temp;
+
+	if (!stack || !new)
 		return ;
-	new->next = *stack;
-	*stack = new;
+	if (!*stack)
+	{
+		*stack = new;
+		new->next = NULL;
+		return ;
+	}
+	temp = *stack;
+	while (temp->next)
+		temp = temp->next;
+	temp->next = new;
+	new->next = NULL;
 }

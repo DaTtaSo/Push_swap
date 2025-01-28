@@ -37,6 +37,24 @@ int	ft_atol(const char *str)
 	return ((long)res * sign);
 }
 
+int	is_valid_number(char *str)
+{
+	int	i;
+
+	i = 0;
+	if (!str[i])
+		return (0);
+	if (str[i] == '-' || str[i] == '+')
+		i++;
+	while (str[i])
+	{
+		if (!ft_isdigit(str[i]))
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
 int	check_duplicate(t_stack *stack, int value)
 {
 	while (stack)

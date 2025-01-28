@@ -18,11 +18,13 @@ int	main(int argc, char **argv)
 	t_stack	*stack_b;
 
 	if (argc < 2)
-		return (0);
+		return (1);
 	stack_b = NULL;
 	stack_a = parse_arguments(argc, argv);
 	if (!stack_a)
-		return (0);
+		return (1);
 	sort_stacks(&stack_a, &stack_b);
+	free_stack(&stack_a);
+	free_stack(&stack_b);
 	return (0);
 }

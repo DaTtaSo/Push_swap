@@ -14,19 +14,12 @@
 
 void	error_exit(t_stack **stack_a, t_stack **stack_b)
 {
-	t_stack	*current;
-	t_stack	*next;
-
 	if (stack_a && *stack_a)
-	{
-		current = *stack_a;
-		while (current)
-		{
-			next = current->next;
-			free(current);
-			current = next;
-		}
-	}
+		free_stack(stack_a);
+	free(stack_a);
+	if (stack_b && *stack_b)
+		free_stack(stack_b);
+	free(stack_b);
 	write(2, "Error\n", 6);
 	exit(EXIT_FAILURE);
 }

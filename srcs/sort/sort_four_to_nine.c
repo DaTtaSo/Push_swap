@@ -15,14 +15,12 @@
 int	find_smallest(t_stack *stack)
 {
 	int	smallest;
-	int	index;
 
-	smallest = stack->index;
-	index = stack->index;
+	smallest = stack->value;
 	while (stack)
 	{
-		if (stack->index < smallest)
-			smallest = stack->index;
+		if (stack->value < smallest)
+			smallest = stack->value;
 		stack = stack->next;
 	}
 	return (smallest);
@@ -35,7 +33,7 @@ void	sort_up_to_nine(t_stack **stack_a, t_stack **stack_b)
 	while (stack_size(*stack_a) > 3)
 	{
 		smallest = find_smallest(*stack_a);
-		while ((*stack_a)->index != smallest)
+		while ((*stack_a)->value != smallest)
 			ra(stack_a);
 		pb(stack_a, stack_b);
 	}

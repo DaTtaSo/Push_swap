@@ -31,7 +31,6 @@ OPE_SRCS			=			push				\
 								swap
 
 PARSING_SRCS		=			imput_parse			\
-								imput_validate		\
 								parsing_utils
 
 SORT_SRCS			=			radix_sort			\

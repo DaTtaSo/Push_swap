@@ -24,15 +24,3 @@ int	stack_size(t_stack *stack)
 	}
 	return (size);
 }
-
-t_stack	*pop_front(t_stack **stack)
-{
-	t_stack	*temp;
-
-	if (!*stack)
-		return (NULL);
-	temp = *stack;
-	*stack = (*stack)->next;
-	temp->next = NULL;
-	return (temp);
-}

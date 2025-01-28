@@ -21,7 +21,6 @@
 typedef struct s_stack
 {
 	int				value;
-	int				index;
 	struct s_stack	*next;
 }	t_stack;
 
@@ -49,11 +48,11 @@ void	sort_stacks(t_stack **stack_a, t_stack **stack_b);
 void	sort_three(t_stack **stack);
 void	sort_up_to_nine(t_stack **stack_a, t_stack **stack_b);
 int		find_smallest(t_stack *stack);
+t_stack	*find_smallest_stack(t_stack *stack);
 
 // stack management
 t_stack	*create_node(int value);
-void	push_front(t_stack **stack, t_stack *new);
-t_stack	*pop_front(t_stack **stack);
+void	push_back(t_stack **stack, t_stack *new);
 int		stack_size(t_stack *stack);
 
 //parsing

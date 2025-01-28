@@ -15,12 +15,12 @@
 t_stack	*parse_arguments(int argc, char **argv)
 {
 	t_stack		*stack_a;
+	t_stack		*new;
 	long		num;
 	int			i;
 
 	stack_a = NULL;
 	i = 1;
-
 	while (i < argc)
 	{
 		if (!is_valid_number(argv[i]))
@@ -30,7 +30,13 @@ t_stack	*parse_arguments(int argc, char **argv)
 			error_exit(&stack_a, NULL);
 		if (check_duplicate(stack_a, (int)num))
 			error_exit(&stack_a, NULL);
-		push_front(&stack_a, create_node((int)num));
+		new = create_node((int)num);
+		if (!new)
+		{
+			free_stack(&stack_a);
+			return (NULL);
+		}
+		push_back(&stack_a, new);
 		i++;
 	}
 	return (stack_a);
