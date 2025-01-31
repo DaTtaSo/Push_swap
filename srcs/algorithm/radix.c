@@ -12,6 +12,22 @@
 
 #include "../../includes/push_swap.h"
 
+static int	is_sorted(t_stack *stack)
+{
+	t_stack	*current;
+
+	if (!stack || !stack->next)
+		return (1);
+	current = stack;
+	while (current->next)
+	{
+		if (current->final_index > current->next->final_index)
+			return (0);
+		current = current->next;
+	}
+	return (1);
+}
+
 void	radix_algorithm(t_stack **stack_a, t_stack **stack_b, int max_bits)
 {
 	int	i;
@@ -20,12 +36,12 @@ void	radix_algorithm(t_stack **stack_a, t_stack **stack_b, int max_bits)
 
 	size = stack_size(*stack_a);
 	i = 0;
-	while (i < max_bits)
+	while (i < max_bits && is_sorted(*stack_a) == 0)
 	{
 		j = 0;
-		while (j < size)
+		while (j < size && is_sorted(*stack_a) == 0)
 		{
-			if (((*stack_a)->value >> i) & 1)
+			if (((*stack_a)->final_index >> i) & 1)
 				ra(stack_a);
 			else
 				pb(stack_a, stack_b);

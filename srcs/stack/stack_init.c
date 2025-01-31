@@ -20,6 +20,7 @@ t_stack	*create_node(int value)
 	if (!new)
 		return (NULL);
 	new->value = value;
+	new->final_index = 0;
 	new->next = NULL;
 	return (new);
 }

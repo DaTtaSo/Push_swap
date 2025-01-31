@@ -34,8 +34,8 @@ void	radix_sort(t_stack **stack_a, t_stack **stack_b)
 	max_bits = 0;
 	while (current)
 	{
-		if (current->value > max_bits)
-			max_bits = current->value;
+		if (current->final_index > max_bits)
+			max_bits = current->final_index;
 		current = current->next;
 	}
 	max_bits = count_bits(max_bits);

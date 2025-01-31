@@ -6,3 +6,6 @@ obj/
 *.d
 .gitignore
 push_swap
+checker_linux
+checker/
+push_swap_visualiser/
