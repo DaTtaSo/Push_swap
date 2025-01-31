@@ -58,6 +58,7 @@ int		stack_size(t_stack *stack);
 
 //parsing
 t_stack	*parse_arguments(int argc, char **argv);
+int		is_sorted(t_stack *stack);
 int		is_valid_number(char *str);
 int		ft_atol(const char *str);
 int		check_duplicate(t_stack *stack, int value);

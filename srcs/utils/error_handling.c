@@ -16,10 +16,8 @@ void	error_exit(t_stack **stack_a, t_stack **stack_b)
 {
 	if (stack_a && *stack_a)
 		free_stack(stack_a);
-	free(stack_a);
 	if (stack_b && *stack_b)
 		free_stack(stack_b);
-	free(stack_b);
 	write(2, "Error\n", 6);
 	exit(EXIT_FAILURE);
 }

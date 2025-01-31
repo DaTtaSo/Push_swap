@@ -47,6 +47,11 @@ int	main(int argc, char **argv)
 	if (!stack_a)
 		return (1);
 	fill_final_index(stack_a);
+	if (is_sorted(stack_a) == 1)
+	{
+		free_stack(&stack_a);
+		return (0);
+	}
 	sort_stacks(&stack_a, &stack_b);
 	free_stack(&stack_a);
 	free_stack(&stack_b);

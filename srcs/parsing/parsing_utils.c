@@ -42,7 +42,7 @@ int	is_valid_number(char *str)
 	int	i;
 
 	i = 0;
-	if (!str[i])
+	if (!str || !str[i])
 		return (0);
 	if (str[i] == '-' || str[i] == '+')
 		i++;
@@ -51,6 +51,22 @@ int	is_valid_number(char *str)
 		if (!ft_isdigit(str[i]))
 			return (0);
 		i++;
+	}
+	return (1);
+}
+
+int	is_sorted(t_stack *stack)
+{
+	t_stack	*current;
+
+	if (!stack || !stack->next)
+		return (1);
+	current = stack;
+	while (current->next)
+	{
+		if (current->final_index > current->next->final_index)
+			return (0);
+		current = current->next;
 	}
 	return (1);
 }
