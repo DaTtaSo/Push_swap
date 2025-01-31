@@ -36,7 +36,7 @@ void	radix_algorithm(t_stack **stack_a, t_stack **stack_b, int max_bits)
 
 	size = stack_size(*stack_a);
 	i = 0;
-	while (i < max_bits && is_sorted(*stack_a) == 0)
+	while (i < max_bits)
 	{
 		j = 0;
 		while (j < size && is_sorted(*stack_a) == 0)
