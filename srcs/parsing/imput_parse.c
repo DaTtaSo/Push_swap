@@ -41,7 +41,10 @@ t_stack	*parse_arguments(int argc, char **argv)
 		num = check_error(stack_a, argv[i]);
 		new = create_node((int)num);
 		if (!new)
-			return (free_stack(&stack_a), NULL);
+		{
+			free_stack(&stack_a);
+			return (NULL);
+		}
 		push_back(&stack_a, new);
 		i++;
 	}
