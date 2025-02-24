@@ -26,45 +26,45 @@ typedef struct s_stack
 }	t_stack;
 
 // operations
-void	swap(t_stack **stack);
-void	ss(t_stack **stack_b, t_stack **stack_a);
-void	sb(t_stack **stack_b);
-void	sa(t_stack **stack_a);
-void	rotate(t_stack **stack);
-void	rr(t_stack **stack_a, t_stack **stack_b);
-void	rb(t_stack **stack_b);
-void	ra(t_stack **stack_a);
-void	reverse_rotate(t_stack **stack);
-void	rrr(t_stack **stack_a, t_stack **stack_b);
-void	rrb(t_stack **stack_b);
-void	rra(t_stack **stack_a);
-void	push(t_stack **dest, t_stack **src);
-void	pa(t_stack **stack_a, t_stack **stack_b);
-void	pb(t_stack **stack_a, t_stack **stack_b);
+void		swap(t_stack **stack);
+void		ss(t_stack **stack_b, t_stack **stack_a);
+void		sb(t_stack **stack_b);
+void		sa(t_stack **stack_a);
+void		rotate(t_stack **stack);
+void		rr(t_stack **stack_a, t_stack **stack_b);
+void		rb(t_stack **stack_b);
+void		ra(t_stack **stack_a);
+void		reverse_rotate(t_stack **stack);
+void		rrr(t_stack **stack_a, t_stack **stack_b);
+void		rrb(t_stack **stack_b);
+void		rra(t_stack **stack_a);
+void		push(t_stack **dest, t_stack **src);
+void		pa(t_stack **stack_a, t_stack **stack_b);
+void		pb(t_stack **stack_a, t_stack **stack_b);
 
 // Sorting functions
-void	radix_sort(t_stack **stack_a, t_stack **stack_b);
-void	radix_algorithm(t_stack **stack_a, t_stack **stack_b, int max_bits);
-void	sort_stacks(t_stack **stack_a, t_stack **stack_b);
-void	sort_three(t_stack **stack);
-void	sort_up_to_nine(t_stack **stack_a, t_stack **stack_b);
-int		find_smallest(t_stack *stack);
-t_stack	*find_smallest_stack(t_stack *stack);
+void		radix_sort(t_stack **stack_a, t_stack **stack_b);
+void		radix_algorithm(t_stack **stack_a, t_stack **stack_b, int max_bits);
+void		sort_stacks(t_stack **stack_a, t_stack **stack_b);
+void		sort_three(t_stack **stack);
+void		sort_up_to_nine(t_stack **stack_a, t_stack **stack_b);
+int			find_smallest(t_stack *stack);
+t_stack		*find_smallest_stack(t_stack *stack);
 
 // stack management
-t_stack	*create_node(int value);
-void	push_back(t_stack **stack, t_stack *new);
-int		stack_size(t_stack *stack);
+t_stack		*create_node(int value);
+void		push_back(t_stack **stack, t_stack *new);
+int			stack_size(t_stack *stack);
 
 //parsing
-t_stack	*parse_arguments(int argc, char **argv);
-int		is_sorted(t_stack *stack);
-int		is_valid_number(char *str);
-int		ft_atol(const char *str);
-int		check_duplicate(t_stack *stack, int value);
+t_stack		*parse_arguments(int argc, char **argv);
+long long	ft_atol(const char *str);
+int			is_sorted(t_stack *stack);
+int			is_valid_number(char *str);
+int			check_duplicate(t_stack *stack, int value);
 
 //error management
-void	error_exit(t_stack **stack_a, t_stack **stack_b);
-void	free_stack(t_stack **stack);
+void		error_exit(t_stack **stack_a, t_stack **stack_b);
+void		free_stack(t_stack **stack);
 
 #endif

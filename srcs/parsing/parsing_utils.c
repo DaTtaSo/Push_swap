@@ -12,7 +12,7 @@
 
 #include "../../includes/push_swap.h"
 
-int	ft_atol(const char *str)
+long long	ft_atol(const char *str)
 {
 	size_t			i;
 	int				sign;
@@ -31,6 +31,8 @@ int	ft_atol(const char *str)
 	}
 	while (str[i] >= '0' && str[i] <= '9')
 	{
+		if ((res * 10) > __INT_MAX__)
+			return (__INT_MAX__ + 1l);
 		res = (res * 10) + (str[i] - '0');
 		i++;
 	}
